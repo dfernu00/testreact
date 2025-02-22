@@ -20,12 +20,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./mi-proyecto  # Añade esta línea para especificar el directorio de trabajo
 
       - name: Build project
         run: npm run build
+        working-directory: ./mi-proyecto  # Añade esta línea para especificar el directorio de trabajo
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Asegúrate de que esta ruta coincida con la carpeta de salida de tu build
+          publish_dir: ./mi-proyecto/dist  # Asegúrate de que esta ruta coincida con la carpeta de salida de tu build
